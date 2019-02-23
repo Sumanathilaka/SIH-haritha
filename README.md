@@ -1,4 +1,5 @@
 # SIH-haritha
 
-All necessary files will be shared here
-Private repo
+Haritha hara platform for e environment
+Updated 23-02-2019
+6.30pm
