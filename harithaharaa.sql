@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 24, 2019 at 10:34 PM
--- Server version: 5.7.22-log
--- PHP Version: 5.6.36
+-- Host: 127.0.0.1
+-- Generation Time: Feb 25, 2019 at 09:32 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,42 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `harithahara`
+-- Database: `harithaharaa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `challenges`
+--
+
+CREATE TABLE `challenges` (
+  `username` varchar(255) NOT NULL,
+  `stage1` tinyint(1) NOT NULL DEFAULT '0',
+  `stage1_pic` varchar(255) DEFAULT NULL,
+  `stage1_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `stage2` tinyint(1) NOT NULL DEFAULT '0',
+  `stage2_pic` varchar(255) DEFAULT NULL,
+  `stage2_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `stage3` tinyint(1) NOT NULL DEFAULT '0',
+  `stage3_pic` varchar(255) DEFAULT NULL,
+  `stage3_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `stage4` tinyint(1) NOT NULL DEFAULT '0',
+  `stage4_pic` varchar(255) DEFAULT NULL,
+  `stage4_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `stage5` tinyint(1) NOT NULL DEFAULT '0',
+  `stage5_pic` varchar(255) DEFAULT NULL,
+  `stage5_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `challenge_id` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `challenges`
+--
+
+INSERT INTO `challenges` (`username`, `stage1`, `stage1_pic`, `stage1_verified`, `stage2`, `stage2_pic`, `stage2_verified`, `stage3`, `stage3_pic`, `stage3_verified`, `stage4`, `stage4_pic`, `stage4_verified`, `stage5`, `stage5_pic`, `stage5_verified`, `challenge_id`) VALUES
+('deshank', 1, 'seed.jpg', 1, 1, 'leaf.jpg', 1, 1, 'flower.jpg', 1, 1, 'fruit.jpg', 0, 0, NULL, 0, 1),
+('deshank', 1, 'seed.jpg', 1, 1, 'leaf.jpg', 1, 1, 'flower.jpg', 0, 0, NULL, 0, 0, NULL, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -46,7 +80,10 @@ INSERT INTO `comment` (`comment`, `time`, `commentid`, `username`, `post_id`) VA
 ('wow', '2019-02-22 18:38:08', 3, 'deshank', 1),
 ('hello', '2019-02-22 18:48:11', 4, 'deshank', 2),
 ('thanks', '2019-02-22 18:48:28', 5, 'deshank', 10),
-('wow nice one', '2019-02-23 08:51:32', 6, 'deshank', 16);
+('wow nice one', '2019-02-23 08:51:32', 6, 'deshank', 16),
+('', '2019-02-25 13:26:36', 7, 'deshank', 3),
+('', '2019-02-25 13:26:45', 8, 'deshank', 2),
+('Hello', '2019-02-25 13:26:53', 9, 'deshank', 2);
 
 -- --------------------------------------------------------
 
@@ -195,6 +232,12 @@ INSERT INTO `userdetails` (`username`, `name`, `email`, `mobile`, `address`, `lo
 --
 
 --
+-- Indexes for table `challenges`
+--
+ALTER TABLE `challenges`
+  ADD PRIMARY KEY (`challenge_id`);
+
+--
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
@@ -247,10 +290,16 @@ ALTER TABLE `userdetails`
 --
 
 --
+-- AUTO_INCREMENT for table `challenges`
+--
+ALTER TABLE `challenges`
+  MODIFY `challenge_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentid` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `commentid` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `followtable`
