@@ -54,7 +54,7 @@ $conn->close();
     <a href="admin-manage-coordinators.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-pencil fa-fw w3-margin-right"></i> Manage Coordinators</a>
     <a href="admin-manage-volunteers.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-pencil fa-fw w3-margin-right"></i> Manage Volunteers</a>
     <a href="admin-get-map.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-map fa-fw w3-margin-right"></i> See all</a>
-    <a href="admin-manage-QA.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-comments fa-fw w3-margin-right"></i> Q & A<span class="w3-badge w3-right w3-small w3-white w3-text-theme"><?php echo $new_questions_count; ?></span></a>
+    <a href="admin-manage-QA.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-comments fa-fw w3-margin-right"></i> Manage Q & A<span class="w3-badge w3-right w3-small w3-white w3-text-theme"><?php echo $new_questions_count; ?></span></a>
   </div>      
 </div>
 <br>

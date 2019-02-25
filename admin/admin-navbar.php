@@ -39,14 +39,32 @@ $conn->close();
       <a href="logout.php" class="w3-bar-item w3-button">Logout</a>
     </div>
   </div>
+  <div class="w3-right w3-dropdown-hover w3-hide-small">
+    <form style="margin:0;" autocomplete="off" action="admin-view-volunteer.php" method="POST">
+      <input id="search_text" name="name" class="w3-input w3-transparent w3-text-white w3-border w3-border-grey w3-round" placeholder="Search" style="height: 34px; margin-top: 9px;">
+      <input id="username" type="hidden" name="username">
+    </form>
+    <div id="result" class="w3-card-4 w3-bar-block w3-dropdown-content"></div>
+  </div>
  </div>
 </div>
 
 <!-- Navbar on small screens -->
-<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
   <a href="admin.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
   <a href="admin-account-settings.php" class="w3-bar-item w3-button w3-padding-large">Account Settings</a>
   <a href="logout.php" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+</div>
+
+
+<div class="w3-margin">
+  <div class="w3-dropdown-hover w3-hide-large w3-hide-medium w3-block" style="top: 55px;">
+    <form autocomplete="off" action="admin-view-volunteer.php" method="POST">
+      <input id="small_search_text" name="name" class="w3-input w3-transparent w3-theme w3-text-white w3-round" placeholder="Search" style="height: 34px; margin-top: 9px;">
+      <input id="small_username" type="hidden" name="username">
+    </form>
+    <div id="small_result" class="w3-card-4 w3-bar-block w3-dropdown-content"></div>
+  </div>
 </div>
 
 <script type="text/javascript"> 
@@ -59,4 +77,57 @@ function openNav() {
     x.className = x.className.replace(" w3-show", "");
   }
 }  
+
+// Used to submit closest form
+function submitForm(input) {
+  $(input).closest("form").submit();
+}
+
+function autofillSearchbar(name, username) {
+  $("#result").css('display','none');
+  $("#search_text").val(name);
+  $("#username").val(username);
+  $("#small_result").css('display','none');
+  $("#small_search_text").val(name);
+  $("#small_username").val(username);
+}
+
+// Autocomplete searchbar
+$(document).ready(function(){
+   load_data();
+   
+   function load_data(search_text){
+       $.ajax({
+           url:"admin-autocomplete-name.php",
+           method:"POST",
+           data:{name:search_text},
+           success:function(data){
+               $("#result").html(data);
+               $("#small_result").html(data);
+               $("#small_result").css('display','block');
+           }
+       });
+   }
+    
+   $("#search_text,#small_search_text").keyup(function(){
+       var search_text=$(this).val();
+       $("#username").val("");
+       $("#small_username").val("");
+       if(search_text !== ''){                   
+           load_data(search_text);
+       }
+       else{                  
+           load_data();
+       }
+   });
+
+    $(document).on('keypress',function(e) {
+      if(e.which == 13) {
+        if($("#username").val() != "") {
+          submitForm($this);
+        }
+      }
+    });
+
+});
 </script>

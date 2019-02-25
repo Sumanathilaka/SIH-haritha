@@ -17,6 +17,14 @@ $username = $_POST['username'];
 
 $sql1 = "SELECT name, email, mobile, address, coordinator, postalcode, latitude, longitude, image_id FROM userdetails WHERE username='".$username."'";
 $result= mysqli_query($conn, $sql1);
+if (mysqli_num_rows($result) == 0) {
+  ?>
+  <script type="text/javascript">alert('No results...')</script>
+</body>
+  <?php
+  exit();
+}
+
 if (mysqli_num_rows($result) > 0) {
   while($row = $result->fetch_assoc()) {
     $name=$row['name'];

@@ -31,8 +31,9 @@ if($stmt = $conn->prepare("UPDATE login SET role=? WHERE username=?")) {
                 if($req_stmt->bind_param("s", $username)) {
                   if($req_stmt->execute()) {
                     $notification = "Congratulations, now you are a coordinator.";
-                    $notif_stmt = $conn->prepare("INSERT INTO notification (username, notification) VALUES (?,?)");
-                    $notif_stmt->bind_param("ss", $username, $notification);
+                    $notificationtype = 1;
+                    $notif_stmt = $conn->prepare("INSERT INTO notification (username, notification, notificationtype) VALUES (?,?,?)");
+                    $notif_stmt->bind_param("ssi", $username, $notification, $notificationtype);
                     $notif_stmt->execute();
                     $notif_stmt->close();
                   }   

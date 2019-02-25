@@ -14,16 +14,28 @@ if(isset($_SESSION['admin_add_coordinator_status'])) {
   }
 }
 
+$admin_remove_coordinator_status = "";
+if(isset($_SESSION['admin_remove_coordinator_status'])) {
+  $admin_remove_coordinator_status = $_SESSION['admin_remove_coordinator_status']; 
+  unset($_SESSION['admin_remove_coordinator_status']);
+  
+  if($admin_remove_coordinator_status == "SUCCESS") {
+    echo "<script>alert('Coordinator was removed successfully');</script>";
+  } else if ($admin_remove_coordinator_status == "FAILED") {
+    echo "<script>alert('Sorry, coordinator could not be removed');</script>";
+  }
+}
+
 $admin_add_coordinator_error = "";
 if(isset($_SESSION['admin_add_coordinator_error'])) {
   $admin_add_coordinator_error = $_SESSION['admin_add_coordinator_error']; 
   unset($_SESSION['admin_add_coordinator_error']);
 }
 
-$admin_view_coordinator_error = "";
-if(isset($_SESSION['admin_view_coordinator_error'])) {
-  $admin_view_coordinator_error = $_SESSION['admin_view_coordinator_error']; 
-  unset($_SESSION['admin_view_coordinator_error']);
+$admin_remove_coordinator_error = "";
+if(isset($_SESSION['admin_remove_coordinator_error'])) {
+  $admin_remove_coordinator_error = $_SESSION['admin_remove_coordinator_error']; 
+  unset($_SESSION['admin_remove_coordinator_error']);
 }
 
 ?>
@@ -63,10 +75,10 @@ if(isset($_SESSION['admin_view_coordinator_error'])) {
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Enter the username of the coordinator</h6>
-              <form action="admin-view-coordinator.php" method="post">
+              <form action="admin-remove-coordinator.php" method="post">
                 <input class="w3-border w3-padding w3-block" type="text" name="username">
-                <p class="w3-right w3-text-red" style="font-size: 12px;"><?php echo $admin_view_coordinator_error; ?></p>
-                <button type="button" class="w3-button w3-theme w3-margin-top w3-margin-bottom" onclick="submitForm(this)"><i class="fa fa-search"></i> &nbsp;Search</button>
+                <p class="w3-right w3-text-red" style="font-size: 12px;"><?php echo $admin_remove_coordinator_error; ?></p>
+                <button type="button" class="w3-button w3-red w3-margin-top w3-margin-bottom" onclick="submitForm(this)"><i class="fa fa-minus"></i> &nbsp;Remove</button>
               </form>
             </div>
           </div>
