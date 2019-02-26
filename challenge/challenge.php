@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Horizontal Timeline</title>
+  <title>Challenge Series</title>
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -52,7 +52,7 @@ $stage5_verified=$row['stage5_verified'];
 
 <section>
   <div class="container">
-    <h1 class="text-center">Challenge <?php echo $i ?></h1>
+    <h1 class="text-center">Challenge <?php echo $i; ?></h1>
     <div class="timeline flex-container">
 
       <div class="timeline-item flex-items-default selected">
@@ -61,7 +61,7 @@ $stage5_verified=$row['stage5_verified'];
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eveniet nulla amet, sapiente voluptatum praesentium.</p>-->
 		  <?php
 		  if ($stage1){?>
-		  <img src="<?php echo $stage1_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
+		  <img src="pics/<?php echo $stage1_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
 		  
 		  <?php if(!$stage1_verified) { ?>
           <div class="hexagon" style="background-color: red;"></div>
@@ -69,11 +69,26 @@ $stage5_verified=$row['stage5_verified'];
           <i class="material-icons" style="margin-top:65px;">cancel</i>
 		  <?php } 
 		  else { ?>
-			  <div class="hexagon" style="background-color: #00FF00;"></div>
+			  <div class="hexagon2" style="background-color: #00FF00;"></div>
           <i class="material-icons" style="margin-top:65px;">check</i>
 		  <?php }
 			  
-		  } ?>
+		  } 
+		  else {
+			  ?>
+			  
+			  <form action="extend_challenge.php" method="POST" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="challenge" id="challenge" value="<?php echo $i; ?>">
+			<input type="hidden" name="stage" id="stage" value="1">
+			<input type="hidden" name="filename" id="filename" value="<?php echo $username; ?>_challenge<?php echo $i; ?>_stage1">
+			<input type="submit" value="Upload Image" name="submit">
+			</form>
+			<?php
+			  
+		  }
+		  ?>
         </div>
       </div>
       <div class="timeline-item flex-items-default">
@@ -82,7 +97,7 @@ $stage5_verified=$row['stage5_verified'];
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eveniet nulla amet, sapiente voluptatum praesentium.</p>-->
 		  <?php
 		  if ($stage2){?>
-		  <img src="<?php echo $stage2_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
+		  <img src="pics/<?php echo $stage2_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
 		  
 		  <?php if(!$stage2_verified) { ?>
           <div class="hexagon" style="background-color: red;"></div>
@@ -90,11 +105,26 @@ $stage5_verified=$row['stage5_verified'];
           <i class="material-icons" style="margin-top:65px;">cancel</i>
 		  <?php } 
 		  else { ?>
-			  <div class="hexagon" style="background-color: #00FF00;"></div>
+			  <div class="hexagon2" style="background-color: #00FF00;"></div>
           <i class="material-icons" style="margin-top:65px;">check</i>
 		  <?php }
 			  
-		  } ?>
+		  } 
+		  else {
+			  ?>
+			  
+			  <form action="extend_challenge.php" method="POST" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="challenge" id="challenge" value="<?php echo $i; ?>">
+			<input type="hidden" name="stage" id="stage" value="2">
+			<input type="hidden" name="filename" id="filename" value="<?php echo $username; ?>_challenge<?php echo $i; ?>_stage2">
+			<input type="submit" value="Upload Image" name="submit">
+			</form>
+			<?php
+			  
+		  }
+		  ?>
         </div>
       </div>
       <div class="timeline-item flex-items-default">
@@ -103,7 +133,7 @@ $stage5_verified=$row['stage5_verified'];
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eveniet nulla amet, sapiente voluptatum praesentium.</p>-->
 		  <?php
 		  if ($stage3){?>
-		  <img src="<?php echo $stage3_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
+		  <img src="pics/<?php echo $stage3_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
 		  
 		  <?php if(!$stage3_verified) { ?>
           <div class="hexagon" style="background-color: red;"></div>
@@ -111,11 +141,26 @@ $stage5_verified=$row['stage5_verified'];
           <i class="material-icons" style="margin-top:65px;">cancel</i>
 		  <?php } 
 		  else { ?>
-			  <div class="hexagon" style="background-color: #00FF00;"></div>
+			  <div class="hexagon2" style="background-color: #00FF00;"></div>
           <i class="material-icons" style="margin-top:65px;">check</i>
 		  <?php }
 			  
-		  } ?>
+		  } 
+		  else {
+			  ?>
+			  
+			  <form action="extend_challenge.php" method="POST" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="challenge" id="challenge" value="<?php echo $i; ?>">
+			<input type="hidden" name="stage" id="stage" value="3">
+			<input type="hidden" name="filename" id="filename" value="<?php echo $username; ?>_challenge<?php echo $i; ?>_stage3">
+			<input type="submit" value="Upload Image" name="submit">
+			</form>
+			<?php
+			  
+		  }
+		  ?>
         </div>
       </div>
       <div class="timeline-item flex-items-default">
@@ -124,7 +169,7 @@ $stage5_verified=$row['stage5_verified'];
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eveniet nulla amet, sapiente voluptatum praesentium.</p>-->
 		  <?php
 		  if ($stage4){?>
-		  <img src="<?php echo $stage4_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
+		  <img src="pics/<?php echo $stage4_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
 		  
 		  <?php if(!$stage4_verified) { ?>
           <div class="hexagon" style="background-color: red;"></div>
@@ -132,11 +177,26 @@ $stage5_verified=$row['stage5_verified'];
           <i class="material-icons" style="margin-top:65px;">cancel</i>
 		  <?php } 
 		  else { ?>
-			  <div class="hexagon" style="background-color: #00FF00;"></div>
+			  <div class="hexagon2" style="background-color: #00FF00;"></div>
           <i class="material-icons" style="margin-top:65px;">check</i>
 		  <?php }
 			  
-		  } ?>
+		  } 
+		  else {
+			  ?>
+			  
+			  <form action="extend_challenge.php" method="POST" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="challenge" id="challenge" value="<?php echo $i; ?>">
+			<input type="hidden" name="stage" id="stage" value="4">
+			<input type="hidden" name="filename" id="filename" value="<?php echo $username; ?>_challenge<?php echo $i; ?>_stage4">
+			<input type="submit" value="Upload Image" name="submit">
+			</form>
+			<?php
+			  
+		  }
+		  ?>
         </div>
       </div>
       <div class="timeline-item flex-items-default">
@@ -145,7 +205,7 @@ $stage5_verified=$row['stage5_verified'];
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident eveniet nulla amet, sapiente voluptatum praesentium.</p>-->
 		  <?php
 		  if ($stage5){?>
-		  <img src="<?php echo $stage5_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
+		  <img src="pics/<?php echo $stage5_pic ?>" style="height:150px; width:340px; align:center; position:relative; margin-left:0px;"></img>
 		  
 		  <?php if(!$stage5_verified) { ?>
           <div class="hexagon" style="background-color: red;"></div>
@@ -153,11 +213,27 @@ $stage5_verified=$row['stage5_verified'];
           <i class="material-icons" style="margin-top:65px;">cancel</i>
 		  <?php } 
 		  else { ?>
-			  <div class="hexagon" style="background-color: #00FF00;"></div>
+			  <div class="hexagon2" style="background-color: #00FF00;"></div>
           <i class="material-icons" style="margin-top:65px;">check</i>
 		  <?php }
 			  
-		  } ?>
+		  } 
+		  else {
+			  ?>
+			  
+			  <form action="extend_challenge.php" method="POST" enctype="multipart/form-data">
+				Select image to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="hidden" name="challenge" id="challenge" value="<?php echo $i; ?>">
+			<input type="hidden" name="stage" id="stage" value="5">
+			<input type="hidden" name="filename" id="filename" value="<?php echo $username; ?>_challenge<?php echo $i; ?>_stage5">
+			<input type="submit" value="Upload Image" name="submit">
+			</form>
+			<?php
+			  
+		  }
+		  
+		  ?>
         </div>
       </div>
 

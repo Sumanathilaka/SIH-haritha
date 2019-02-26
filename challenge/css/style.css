@@ -139,7 +139,7 @@ h2 {
   position: relative;
   width: 75px;
   height: 35px;
-  background-color: #1c77c3;
+  background-color: red;
   margin: 21.65px 0;
   left: 50%;
   margin-left: -37px;
@@ -157,11 +157,42 @@ h2 {
 
 .hexagon:before {
   bottom: 100%;
-  border-bottom: 21.65px solid #1c77c3;
+  border-bottom: 21.65px solid red;
 }
 
 .hexagon:after {
   top: 100%;
   width: 0;
-  border-top: 21.65px solid #1c77c3;
+  border-top: 21.65px solid red;
+}
+
+.hexagon2 {
+  position: relative;
+  width: 75px;
+  height: 35px;
+  background-color:  #00FF00;
+  margin: 21.65px 0;
+  left: 50%;
+  margin-left: -37px;
+  top: 25px;
+}
+
+.hexagon2:before,
+.hexagon2:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 37.5px solid transparent;
+  border-right: 37.5px solid transparent;
+}
+
+.hexagon2:before {
+  bottom: 100%;
+  border-bottom: 21.65px  solid #00FF00;
+}
+
+.hexagon2:after {
+  top: 100%;
+  width: 0;
+  border-top: 21.65px  solid #00FF00;
 }
