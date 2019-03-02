@@ -7,7 +7,7 @@
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT * FROM UserDetails WHERE (UserName = '$myusername' OR Email='$myusername') AND Password = '$mypassword'";
+      $sql = "SELECT * FROM login WHERE (username = '$myusername' OR email='$myusername') AND password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $count = mysqli_num_rows($result);
       	
@@ -16,8 +16,6 @@
          header("location: home.php");
       }else {
          $error = "Incorrect Username or Password";
-         // $_COOKIE['error'] = $error;
-
          header("location: index.php?error=".$error);
          echo $error;
       }

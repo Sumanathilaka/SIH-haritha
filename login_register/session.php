@@ -4,7 +4,7 @@
    
    $user_check = $_SESSION['username'];
    
-   $ses_sql = mysqli_query($db,"select UserName from users where UserName = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select username from userdetails where username = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
