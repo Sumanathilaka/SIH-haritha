@@ -7,7 +7,7 @@ $output ="";
 
 if(!empty($_POST['name'])){   
   $name= '%'.$_POST['name'].'%';
-  $stmt = $conn->prepare("SELECT DISTINCT a.name, a.username, a.image_id FROM ( SELECT name, username, image_id FROM userdetails UNION ALL SELECT name, username, image_id FROM coordinator) a WHERE name like ?");
+  $stmt = $conn->prepare("SELECT DISTINCT name, username, image_id FROM userdetails WHERE name like ?");
   $stmt->bind_param("s",$name);
   $stmt->execute();
   $result = $stmt->get_result();
