@@ -51,8 +51,9 @@ $conn->close();
 <!-- Accordion -->
 <div class="w3-card w3-round">
   <div class="w3-white">
-    <a href="coordinator_verification.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-comments fa-fw w3-margin-right"></i> Challenge notifications <span class="w3-badge w3-right w3-small w3-white w3-text-theme"><?php echo $new_questions_count; ?></span></a>
+    <a href="coordinator_verification.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-tree fa-fw w3-margin-right"></i> Challenge notifications <span class="w3-badge w3-right w3-small w3-white w3-text-theme"><?php echo $new_questions_count; ?></span></a>
     <a href="coordinator_newusers.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-pencil fa-fw w3-margin-right"></i> New Users <span class="w3-badge w3-right w3-small w3-white w3-text-theme"><?php echo $new_questions_count; ?></span></a>
+    <a href="coordinator_get_map.php" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-map fa-fw w3-margin-right"></i> View Volunteers</a>
   </div>      
 </div>
 <br>

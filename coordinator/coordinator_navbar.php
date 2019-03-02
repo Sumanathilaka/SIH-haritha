@@ -11,7 +11,7 @@ $result = $stmt->get_result();
 if($result->num_rows === 0) exit('No rows');
 
 while($row = $result->fetch_assoc()) {
-  $profile_pic = $row['profile_pic'];
+  $profile_pic = $row['image_id'];
 }
 
 if($profile_pic == NULL) {
