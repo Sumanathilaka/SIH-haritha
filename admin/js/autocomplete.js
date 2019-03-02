@@ -42,3 +42,12 @@
        }
    });
 
+   $(document).click(function(e)
+   {
+      if(! $(e.target).parent('.result').length)
+      {
+          $(".result").each(function() {
+            $(this).css('display','none');
+          });
+      }
+   });
