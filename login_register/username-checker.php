@@ -9,7 +9,7 @@ if(isset($_POST["username"]))
 
 	$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH);
 	
-	$statement = $db->prepare("SELECT UserName FROM UserDetails WHERE UserName=?");
+	$statement = $db->prepare("SELECT username FROM login WHERE username=?");
 	$statement->bind_param('s', $username);
 	$statement->execute();
 	$statement->bind_result($username);

@@ -23,7 +23,6 @@
          <source src="videos/login.mp4" type="video/mp4">
          </video>
 
-
  <div class="container">
         <div class="row">
 			<div class="col-md-5 mx-auto">
@@ -85,18 +84,10 @@
                         </div>
                         <form action="register.php" method="post" name="registration">
                         <div class="form-group">
-                        <div class="row">  
-                           <div class="col-md-6 text center">
-                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
-                              </div>
-                              <div class="col-md-6 text center">
-                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
-                              </div>
-                           </div>
+                              <input type="text"  name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
                            </div>
                            <div class="form-group">
-                              <!-- <label for="exampleInputEmail1">User Name</label> -->
-                              <input type="text"  name="rusername" class="form-control" id="rusername" aria-describedby="emailHelp" placeholder="Enter User Name">
+                              <input type="text"  name="rusername" class="form-control" id="rusername" aria-describedby="emailHelp" placeholder="Enter Username">
                               <span id="user-result"></span>
                            </div>                           
                            <div class="form-group">
@@ -122,7 +113,7 @@
                            <div class="form-group">
                               <div class="row">
                               <div class="col-md-4 text center">
-                              <input type="text" name="pincode" id="pincode" pattern="[0-9]" class="form-control" aria-describedby="emailHelp" placeholder="Pincode">
+                              <input type="text" name="pincode" id="pincode" class="form-control" aria-describedby="emailHelp" placeholder="Pincode">
                               </div>                              
                               <div class="col-md-4 text center">
                               <input type="text" name="state" id="state"  class="form-control" aria-describedby="emailHelp" placeholder="State">
@@ -237,8 +228,7 @@ function callsignin(){
       
       $("form[name='registration']").validate({
         rules: {
-          firstname: "required",
-          lastname: "required",
+          name: "required",
           rusername:  "required",
           location: "required",
           number:"required",
@@ -255,8 +245,7 @@ function callsignin(){
         },
         
         messages: {
-          firstname: "Please enter your firstname",
-          lastname: "Please enter your lastname",
+          name: "Please enter your name",
           rusername : "Please enter username",
           location : "Please give location",
           password: {
