@@ -1,8 +1,9 @@
-body{
+body{ 
     padding-top:4.2rem;
     padding-bottom:4.2rem;
-    background:rgba(209, 255, 183, 0.76);
-    background-image: "images/tree.jpg";
+    /* background:rgba(209, 255, 183, 0.76); */
+    /* background-image: url(../images/tree.jpg); */
+    background-size: cover;
     }
     a{
      text-decoration:none !important;
@@ -11,7 +12,7 @@ body{
      font-family: 'Kaushan Script', cursive;
      }
       .myform{
-    position: relative;
+    /* position: relative; */
     display: -ms-flexbox;
     display: flex;
     padding: 1rem;
@@ -24,7 +25,7 @@ body{
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 1.1rem;
     outline: 0;
-    max-width: 500px;
+    max-width: 600px;
      }
      .tx-tfm{
      text-transform:uppercase;
@@ -110,3 +111,27 @@ body{
         transform: scale(1);
       }
     }
+
+  /* Css for map and location */
+    #map{
+      height: 50vh;
+      margin-bottom: 10px;
+      display: none;
+  }
+  
+  #locationList .card{
+      padding: 10px;
+  }
+  
+  #toast-container{
+    top: 50%;
+    bottom: unset;
+  }
+  .toast{
+    background-color: rgba(0,0,0,.8);
+  }
+  .btn i{
+    font-size: 1rem;
+    margin-right: 2px;
+  }
+  
