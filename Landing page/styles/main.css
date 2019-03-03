@@ -1,5 +1,5 @@
 #intro {
-  background: url("../img/plant.jpg") no-repeat center center;
+  background: url("../img/plantmirror.jpg") no-repeat center center;
   background-size: cover;
 }
 
@@ -40,14 +40,11 @@
   }
 }
 
-#pricing .lead {
+
+#mission .lead {
   opacity: 0.7;
 }
 
-#pricing .card-image {
-  background: url("../img/forest.jpg") no-repeat center center;
-}
-
-#pricing ul li {
+#mission ul li {
   font-size: 1.1em;
 }
