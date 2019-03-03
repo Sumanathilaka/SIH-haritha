@@ -75,8 +75,11 @@ if(isset($_SESSION['admin_remove_volunteer_error'])) {
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Enter the username of the volunteer</h6>
-              <form action="admin-remove-volunteer.php" method="post">
-                <input class="w3-border w3-padding w3-block" type="text" name="username">
+              <form autocomplete="off" action="admin-remove-volunteer.php" method="post">
+                <input class="search_text w3-border w3-padding w3-block" type="text" name="name">
+                <input class="username" type="hidden" name="username">
+                <input class="url" type="hidden" name="url" value="admin-autocomplete-volunteer-name.php">
+                <div class="result w3-card-4 w3-bar-block w3-dropdown-content"></div>
                 <p class="w3-right w3-text-red" style="font-size: 12px;"><?php echo $admin_remove_volunteer_error; ?></p>
                 <button type="button" class="w3-button w3-red w3-margin-top w3-margin-bottom" onclick="submitForm(this)"><i class="fa fa-minus"></i> &nbsp;Remove</button>
               </form>
@@ -182,6 +185,7 @@ function readURL(input) {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUq0Rqaf-6xMQFrxjlPR__DtQNKx61YqE&callback=initialize&libraries=places" async defer></script>
+<script src="./js/autocomplete.js" type="text/javascript"></script>
 </body>
 </html>
 

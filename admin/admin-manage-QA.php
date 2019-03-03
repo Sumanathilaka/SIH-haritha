@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   } 
 }
 
-$stmt = $conn->prepare("SELECT newquestion.question_id, newquestion.question_text, userdetails.name, userdetails.image_id FROM newquestion, userdetails WHERE userdetails.username = newquestion.username");
+$stmt = $conn->prepare("SELECT question_id, question_text FROM newquestion");
 $stmt->execute();
 $result = $stmt->get_result();
 

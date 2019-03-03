@@ -22,9 +22,12 @@ if(!empty($_POST['name'])){
         } else {
           $image_id = "./images/".$image_id;         
         }
-        $output .="<div class='w3-padding autocomplete-item' onclick=
-                  \"autofillSearchbar('".$name."','".$username."')\">
-                   <span><img class='w3-margin-right w3-circle' src='".$image_id."' height='20' width='20'></span>".$name."</div>";                  
+        $output .="<div class='w3-padding autocomplete-item' style='cursor:pointer;' onclick=
+                  \"autocompleteSearchbar(this, '".$name."','".$username."')\" 
+                  onmouseover=\"changeBackgroundColor(this,'#ccc')\" 
+                  onmouseout=\"changeBackgroundColor(this,'white')\">
+                   <span><img class='w3-margin-right w3-circle' src='".$image_id."' height='20' width='20'></span>".$name."
+                   </div>";                  
     }
   }
   else{
