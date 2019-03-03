@@ -31,6 +31,9 @@ $username = $_SESSION["username"];
     
     <!-- Middle Column -->
     <div class="w3-col m7">
+
+      <!-- Post something div -->
+      <?php include 'coordinator_post_panel.php' ?>
     
     <!-- Retrieve posts  -->
     <?php 
@@ -140,7 +143,7 @@ $username = $_SESSION["username"];
     <!-- End Middle Column -->
     </div>
     
-    <!-- Right Column -->
+    <!-- Right Column <--></-->
     <div class="w3-col m2"> 
       <?php include 'admin-coordinator-request.php'; ?>
     <!-- End Right Column -->
