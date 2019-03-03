@@ -4,7 +4,7 @@ include 'db-connect.php';
 
 $stmt = $conn->prepare("SELECT image_id FROM coordinator WHERE username=?");
 $stmt->bind_param("s", $username);
-$username = $_SESSION["username"];
+$username = "venky";
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -40,7 +40,7 @@ $conn->close();
     </div>
   </div>
   <div class="w3-right w3-dropdown-hover w3-hide-small">
-    <form style="margin:0;" autocomplete="off" action="admin-view-volunteer.php" method="POST">
+    <form style="margin:0;" autocomplete="off" action="coordinator_view_volunteer.php" method="POST">
       <input id="search_text" name="name" class="w3-input w3-transparent w3-text-white w3-border w3-border-grey w3-round" placeholder="Search" style="height: 34px; margin-top: 9px;">
       <input id="username" type="hidden" name="username">
     </form>
@@ -51,7 +51,7 @@ $conn->close();
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-  <a href="admin.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
+  <a href="coordinator_home.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
   <a href="admin-account-settings.php" class="w3-bar-item w3-button w3-padding-large">Account Settings</a>
   <a href="logout.php" class="w3-bar-item w3-button w3-padding-large">Logout</a>
 </div>
@@ -59,7 +59,7 @@ $conn->close();
 
 <div class="w3-margin">
   <div class="w3-dropdown-hover w3-hide-large w3-hide-medium w3-block" style="top: 55px;">
-    <form autocomplete="off" action="admin-view-volunteer.php" method="POST">
+    <form autocomplete="off" action="coordinator_view_volunteer.php" method="POST">
       <input id="small_search_text" name="name" class="w3-input w3-transparent w3-theme w3-text-white w3-round" placeholder="Search" style="height: 34px; margin-top: 9px;">
       <input id="small_username" type="hidden" name="username">
     </form>
@@ -98,7 +98,7 @@ $(document).ready(function(){
    
    function load_data(search_text){
        $.ajax({
-           url:"admin-autocomplete-name.php",
+           url:"coordinator_auto_complete.php",
            method:"POST",
            data:{name:search_text},
            success:function(data){

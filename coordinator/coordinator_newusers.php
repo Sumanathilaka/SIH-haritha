@@ -39,9 +39,15 @@ $username = $_SESSION["username"];
     $sql2 = "
       SELECT userdetails.username, notification.notification  , userdetails.image_id
       FROM notification INNER JOIN userdetails
-      WHERE notification.username = userdetails.username and userdetails.coordinator = '$username' and notification.notificationtype = 5  
+      WHERE notification.username = userdetails.username and userdetails.coordinator = '$username' and ( notification.notificationtype = 5 or notification.notificationtype = 7)   
       ORDER BY notification.notificationid DESC
     ";
+    $sql3 = " 
+    UPDATE notification  
+    SET notificationtype = 7 
+    WHERE notificationtype = 5 and username in ( SELECT username FROM userdetails WHERE coordinator='$username')
+    " ;
+    $result1= mysqli_query($conn, $sql3);
     $result= mysqli_query($conn, $sql2);
    // echo mysqli_num_rows($result) ;
    // echo $username ;
@@ -74,6 +80,9 @@ $username = $_SESSION["username"];
 <?php
   } 
 }
+
+  
+
 ?>
       
     <!-- End Middle Column -->

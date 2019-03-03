@@ -10,6 +10,7 @@
         <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
          <input type ="file" name="photo1" id="photo" class="w3-button w3-theme">
          <input type ="file" name="photo2" id="photo" class="w3-button w3-theme">
+         <br>
           <input type="submit" value="Submit" class="w3-button w3-theme"  >
 
      </form>

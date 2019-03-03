@@ -39,13 +39,20 @@ $username = $_SESSION["username"];
     $sql2 = "
       SELECT challenges.username,challenges.stage1_pic,challenges.stage2_pic,challenges.stage3_pic,challenges.stage4_pic,challenges.stage5_pic,challenges.stage1_postid,challenges.stage2_postid,challenges.stage3_postid,challenges.stage4_postid,challenges.stage5_postid, userdetails.image_id, challenges.challenge_id ,userdetails.name  
       FROM challenges , userdetails
-      WHERE challenges.challenge_state=1 and userdetails.coordinator = '$username' and userdetails.username=challenges.username 
+      WHERE challenges.challenge_state=1 and userdetails.coordinator = '$username' and userdetails.username=challenges.username and  ( challenges.seen = 1 or challenges.seen=0 ) 
 
       ORDER BY challenges.challenge_id
       
     ";
     $result= mysqli_query($conn, $sql2);
-    
+    $sql3 = " 
+    UPDATE challenges 
+    SET seen = 1
+    WHERE seen = 0 and challenge_state = 1 and username in (
+    SELECT username FROM userdetails WHERE coordinator = '$username'  
+    )
+    " ;
+    $result1= mysqli_query($conn, $sql3);
     //echo $username ;
     //echo mysqli_num_rows($result) ;
 
